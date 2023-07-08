@@ -1,0 +1,21 @@
+<h1>Category Manager</h1>
+<button class="btn btn-primary" routerLink="add">Thêm mới</button>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">name category</th>
+      <th>#</th>
+    </tr>
+  </thead>
+  <tbody *ngIf=" category && category.length">
+    <tr *ngFor="let category of category; index as i">
+      <td scope="row">{{i + 1}}</td>
+      <td>{{category.name}}</td>
+      <td><button class="btn btn-danger m-1 " (click)="RemoveCategory(category._id)">xóa</button><button
+          class="btn btn-warning" routerLink="update/{{category._id}}">Sửa</button></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>

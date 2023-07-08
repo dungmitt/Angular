@@ -1,0 +1,39 @@
+.container-fluid {
+  padding: 0;
+}
+
+.sidebar {
+  position: fixed;
+  height: 100%;
+  left: 0;
+  z-index: 100;
+  padding-top: 3.5rem;
+}
+
+.nav-item {
+  margin-bottom: 0.5rem;
+}
+
+.nav-link {
+  font-weight: bold;
+  color: #333;
+}
+
+.nav-link.active {
+  color: #fff;
+  background-color: orange;
+}
+
+h1,
+h5 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.sidebar-sticky ul li a:hover {
+  background-color: orange;
+}
+
+.sidebar-sticky ul li a:hover h5 {
+  color: white;
+}

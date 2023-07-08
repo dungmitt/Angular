@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title text-center mb-4">Sign Up</h3>
+          <form [formGroup]="FormSignup" (ngSubmit)="onHandleSubmit()">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" formControlName="username"
+                placeholder="Enter your name">
+              <div *ngIf="
+                FormSignup.get('username')?.hasError('required') &&
+                (FormSignup.get('username')?.touched || FormSignup.get('username')?.dirty)
+              " style="color: red;">
+                Name is required
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="email" formControlName="email" aria-describedby="emailHelp"
+                placeholder="Enter email">
+              <div *ngIf="
+                  FormSignup.get('email')?.hasError('required') &&
+                  (FormSignup.get('email')?.touched || FormSignup.get('email')?.dirty)
+                " style="color: red;">
+                Email is required
+              </div>
+              <div *ngIf="
+                  FormSignup.get('email')?.hasError('email') &&
+                  (FormSignup.get('email')?.touched || FormSignup.get('email')?.dirty)
+                " style="color: red;">
+                Email không hợp lệ
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" formControlName="password"
+                placeholder="Password" style="color: red;">
+              <div *ngIf="
+                FormSignup.get('password')?.hasError('required') &&
+                (FormSignup.get('password')?.touched || FormSignup.get('password')?.dirty)
+              " style="color: red;">
+                Password is required
+              </div>
+              <div *ngIf="
+                FormSignup.get('password')?.hasError('minlength') &&
+                (FormSignup.get('password')?.touched || FormSignup.get('password')?.dirty)
+              " style="color: red;">
+                Mật khẩu phải có ít nhất 6 ký tự
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="confirm-password">Confirm Password</label>
+              <input type="password" class="form-control" id="confirm-password" formControlName="confirmPassword"
+                placeholder="Confirm Password">
+              <div *ngIf="
+                  FormSignup?.hasError('passwordNotMatch') &&
+                  (FormSignup.get('confirmPassword')?.touched ||
+                    FormSignup.get('confirmPassword')?.dirty)
+                " style="color: red;">
+                Mật khẩu không trùng
+              </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

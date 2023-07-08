@@ -1,0 +1,12 @@
+<form [formGroup]="formAdd" (ngSubmit)="onHandleSubmit()">
+  <div class="mb-3">
+    <label for="formGroupExampleInput2" class="form-label">Thêm category</label>
+    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="name category"
+      formControlName="name">
+    <div
+      *ngIf="formAdd.get('name')?.hasError('required') && (formAdd.get('name')?.touched || formAdd.get('name')?.dirty) ">
+      Không được để trống
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

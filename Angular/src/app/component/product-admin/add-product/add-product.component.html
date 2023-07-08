@@ -1,0 +1,52 @@
+<h1>Thêm mới sách</h1>
+<form (ngSubmit)="onHandelSubmit()" class="form-group">
+    <div class="alert alert-success" role="alert" *ngIf="showSuccessAlert">
+        Thêm sản phẩm thành công!
+    </div>
+    <div class="mb-3">
+        <label for=""><b>Tên sách</b></label>
+        <input type="text" name="name" class="form-control" [(ngModel)]="product.name">
+    </div>
+    <div class="mb-3">
+        <label for=""><b>Tác giả</b></label>
+        <input type="text" name="auther" class="form-control" [(ngModel)]="product.auther">
+    </div>
+    <div class="mb-3">
+        <label for=""><b>Phát Hành</b></label>
+        <input type="text" name="published" class="form-control" [(ngModel)]="product.published">
+    </div>
+    <div class="mb-3">
+        <label for=""><b>Hình ảnh</b></label>
+        <input type="text" name="image" class="form-control" [(ngModel)]="product.image">
+    </div>
+    <div class="mb-3">
+        <label for=""><b>Giá</b></label>
+        <input type="number" name="price" class="form-control" [(ngModel)]="product.price">
+    </div>
+    <div class="mb-3">
+        <label for=""><b>Số lượng</b></label>
+        <input type="number" name="quantity" class="form-control" [(ngModel)]="product.quantity">
+    </div>
+    <div class="mb-3">
+        <label for=""><b>Ngày</b></label>
+        <input type="date" name="date" class="form-control" [(ngModel)]="product.date">
+    </div>
+    <div class="mb-3">
+        <label for=""><b>Mô tả</b></label>
+        <br>
+        <textarea name="description" id="" cols="30" rows="10" [(ngModel)]="product.description"></textarea>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-append">
+            <label class="input-group-text" for="inputGroupSelect02">Danh mục</label>
+        </div>
+        <select (change)="onCategoryChange($event)">
+            <option *ngFor="let cate of category" value="{{cate._id}}">{{cate.name}}</option>
+        </select>
+
+    </div>
+
+    <button class="btn btn-primary" type="submit">Thêm mới </button>
+
+
+</form>

@@ -1,0 +1,62 @@
+<style>
+  .product-detail {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 16px;
+    padding: 30px;
+  }
+
+  .product-detail .row {
+    margin-bottom: 20px;
+  }
+
+  .product-detail img {
+    max-width: 100%;
+  }
+
+  .product-detail .product-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+
+  .product-detail .product-price {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+
+  .product-detail .btn {
+    font-size: 18px;
+    padding: 10px 30px;
+    margin-top: 20px;
+    border-radius: 5px;
+  }
+
+  .product-detail .btn-primary {
+    background-color: #F08C00;
+    border-color: #F08C00;
+  }
+
+  .product-detail .btn-primary:hover {
+    background-color: #FFA94D;
+    border-color: #FFA94D;
+  }
+</style>
+<div class="product-detail" *ngIf="product">
+  <div class="row">
+    <div class="col-sm-6">
+      <img src={{product.image}}>
+    </div>
+    <div class="col-sm-6">
+      <h1 class="product-title">{{product.name}}</h1>
+      <p class="text-muted">Mã sản phẩm: 187827003</p>
+      <hr>
+      <p class="product-price">price: {{product.price}}</p>
+      <p>Tác giả: {{product.auther}}</p>
+      <p>NXB: {{product.date}}</p>
+      <p>Số trang: 70</p>
+      <p>Ngày xuất bản: 05-2019</p>
+      <button type="button" class="btn btn-primary">Mua ngay</button>
+    </div>
+  </div>
+</div>

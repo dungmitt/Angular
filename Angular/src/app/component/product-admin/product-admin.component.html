@@ -1,0 +1,42 @@
+<h1>Product Manager</h1>
+<div class="col-md-8">
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" [(ngModel)]="searchTerm" name="searchTerm" placeholder="Search">
+    <div class="input-group-append">
+      <button class="btn btn-success" style="background-color: orange;" type="button" (click)="search()">Go</button>
+    </div>
+  </div>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>STT</th>
+      <th>Tên sách</th>
+      <th>Tác giả</th>
+      <th>Phát hành</th>
+      <th>Hình ảnh</th>
+      <th>Giá</th>
+      <th>Số lượng</th>
+      <th>Ngày</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of searchResult;index as i">
+      <td>{{i+1}}</td>
+      <td>{{product.name}}</td>
+      <td>{{product.auther}}</td>
+      <td>{{product.published}}</td>
+      <td><img src={{product.image}} alt="" style="width: 100px;"></td>
+      <td>{{product.price}}</td>
+      <td>{{product.quantity}}</td>
+      <td>{{product.date}}</td>
+      <td>
+        <button class="btn btn-danger m-1" (click)="onRemove(product._id)">Xóa</button>
+        <button routerLink="update/{{product._id}}" class="btn btn-warning">Edit</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<button routerLink="add" class="btn btn-primary">Thêm mới sách</button>
